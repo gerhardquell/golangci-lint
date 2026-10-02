@@ -158,7 +158,7 @@ func (r *Runner) runLinterSafe(ctx context.Context, lintCtx *linter.Context,
 ) (ret []*result.Issue, err error) {
 	defer func() {
 		if panicData := recover(); panicData != nil {
-			if pe, ok := panicData.(*errorutil.PanicError); ok {
+			if pe, ok := panicData.(errorutil.PanicError); ok {
 				err = fmt.Errorf("%s: %w", lc.Name(), pe)
 
 				// Don't print stacktrace from goroutines twice

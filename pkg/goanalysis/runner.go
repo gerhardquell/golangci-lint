@@ -307,7 +307,7 @@ func extractDiagnostics(roots []*action) (retDiags []*Diagnostic, retErrors []er
 
 	extract = func(act *action) {
 		if act.Err != nil {
-			if pe, ok := act.Err.(*errorutil.PanicError); ok {
+			if pe, ok := act.Err.(errorutil.PanicError); ok {
 				panic(pe)
 			}
 			retErrors = append(retErrors, fmt.Errorf("%s: %w", act.Analyzer.Name, act.Err))

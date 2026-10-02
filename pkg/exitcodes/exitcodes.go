@@ -21,11 +21,11 @@ func (e ExitError) Error() string {
 }
 
 var (
-	ErrNoGoFiles = &ExitError{
+	ErrNoGoFiles = ExitError{
 		Message: "no go files to analyze",
 		Code:    NoGoFiles,
 	}
-	ErrFailure = &ExitError{
+	ErrFailure = ExitError{
 		Message: "failed to analyze",
 		Code:    Failure,
 	}

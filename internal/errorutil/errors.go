@@ -10,8 +10,8 @@ type PanicError struct {
 	stack     []byte
 }
 
-func NewPanicError(recovered any, stack []byte) *PanicError {
-	return &PanicError{recovered: recovered, stack: stack}
+func NewPanicError(recovered any, stack []byte) PanicError {
+	return PanicError{recovered: recovered, stack: stack}
 }
 
 func (e PanicError) Error() string {
